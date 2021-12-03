@@ -1,0 +1,20 @@
+from typing import no_type_check
+
+totaldepth=0
+totalhorizon=0
+aim =0 
+dosya = open("input.txt","r")
+for satir in dosya:
+   satir  = satir.split(" ")
+   if satir[0]=="forward":
+      totalhorizon+=int(satir[1])
+      totaldepth += (aim*int(satir[1]))
+   elif satir[0]=="up":
+      aim -= int(satir[1])
+   elif satir[0]=="down":
+      aim += int(satir[1])
+
+
+print(f"total depth = {totaldepth} and total horizon = {totalhorizon}")
+multiple = totalhorizon*totaldepth
+print(f"multiple is {multiple}")
