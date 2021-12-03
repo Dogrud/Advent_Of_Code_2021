@@ -1,0 +1,45 @@
+import math
+from os import close
+zerosum=0
+onesum=0
+gammarate=[]
+epsilonrate=[]
+
+
+
+for a in range(0,12):
+   dosya = open("input.txt","r")
+   for satir in dosya:
+    if satir[a] == "1":
+      onesum +=1
+    else:
+      zerosum +=1
+   
+   if onesum>zerosum:
+      gammarate.append(1)
+      epsilonrate.append(0)
+      onesum=0
+      zerosum=0
+      dosya.close()
+   else:
+      gammarate.append(0)
+      epsilonrate.append(1)
+      onesum = 0
+      zerosum = 0
+      dosya.close()
+
+decgam = 0
+deceps = 0
+
+for i in range(0,len(gammarate)):
+ if(gammarate[i]==1):
+    decgam += pow(2,(11-i)) 
+for i in range(0,len(epsilonrate)):
+ if(epsilonrate[i]==1):
+    deceps += pow(2,(11-i)) 
+    
+
+
+print(f" gammarate is {decgam} and epsilonrate is {deceps}")
+multiply = decgam*deceps
+print(f"multiply = {multiply}")
