@@ -1,0 +1,23 @@
+
+dosya = open("input.txt","r")
+list = dosya.read()
+list = list.split("\n")
+sayac=0
+toplam = 0
+toplam2 = 0
+a=0
+
+for k in list:
+ if k == list[len(list)-3]:
+     break
+ for i in range(a,a+3):
+    toplam = toplam + int(list[i])
+ for u in range(a+1,a+4):
+    toplam2 = toplam2 + int(list[u])
+ if toplam2 > toplam:
+  sayac+=1
+ a=a+1
+ toplam=0
+ toplam2=0
+
+print(f"number is {sayac}")
